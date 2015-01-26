@@ -21,11 +21,11 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
-    <dependency>
-		<groupId>org.apache.hadoop</groupId>
-		<artifactId>hadoop-core</artifactId>
-		<version>0.20.2</version>
-	</dependency>
+    <dependency> 
+       <groupId>org.apache.hadoop</groupId> 
+       <artifactId>hadoop-core</artifactId> 
+       <version>1.2.1</version> 
+     </dependency>
   </dependencies>
   <build>
         <plugins><!-- 플러그인들을 받아와 저장 -->
