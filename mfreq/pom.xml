@@ -50,7 +50,7 @@
                     <archive>
                         <manifest>
                         <!-- 메인이 있는 클래스의 클래스명을 알려준다. -->
-                            <mainClass>exampleApp.WordCountsInDocuments</mainClass>
+                            <mainClass>mfreq.WordFrequenceInDocument</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

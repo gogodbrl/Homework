@@ -4,7 +4,7 @@
   <artifactId>mcount</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
-  <name>exampleApp</name>
+  <name>mcount</name>
   <url>http://maven.apache.org</url>
 
   <properties>
@@ -47,7 +47,7 @@
                     <archive>
                         <manifest>
                         <!-- 메인이 있는 클래스의 클래스명을 알려준다. -->
-                            <mainClass>exampleApp.WordCountsInDocuments</mainClass>
+                            <mainClass>mcount.WordCountsInDocuments</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
