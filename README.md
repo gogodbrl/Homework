@@ -550,7 +550,7 @@ hadoop@master:/home/hadoop/tools/hadoop/bin$ ./hadoop dfs -put /home/hadoop/Home
  ./hadoop jar [/home/에서 부터 tfidf-SNAPShot-0.0.1-jar-with-dependency.jar까지의 경로] [mainclass경로(패키지명.클래스명)] 
 ```
 저의 경우에는 
-hadoop@master:/home/hadoop/tools/hadoop/bin$ ./hadoop jar /home/hadoop/Homework/TFIDF/target/tfidf-0.0.1-SNAPSHOT-jar-with-dependencies.jar tfidf.WordFrequenceInDocument 
+hadoop@master:/home/hadoop/tools/hadoop/bin$ ./hadoop jar /home/hadoop/Homework/TFIDF/target/tfidf-0.0.1-SNAPSHOT-jar-with-dependencies.jar tfidf.MyFrequency
 로 했습니다.
 ```
 
@@ -567,11 +567,10 @@ hadoop@master:/home/hadoop/tools/hadoop/bin$ ./hadoop dfs -cat 1-word-freq/part-
 ======================================
 ###documentcount구하기
 
-
  ./hadoop jar [/home/에서 부터 tfidf-SNAPShot-0.0.1-jar-with-dependency.jar까지의 경로] [mainClass 경로]
 ```
 (저의 경우는
-hadoop@master:/home/hadoop/tools/hadoop/bin$ ./hadoop jar /home/hadoop/Homework/TFIDF/target/tfidf-0.0.1-SNAPSHOT-jar-with-dependencies.jar tfidf.WordCountsInDocuments
+hadoop@master:/home/hadoop/tools/hadoop/bin$ ./hadoop jar /home/hadoop/Homework/TFIDF/target/tfidf-0.0.1-SNAPSHOT-jar-with-dependencies.jar tfidf.MyCounts
 로 했습니다.)
 15/01/26 17:05:41 INFO input.FileInputFormat: Total input paths to process : 1
 15/01/26 17:05:41 INFO util.NativeCodeLoader: Loaded the native-hadoop library
@@ -600,7 +599,7 @@ drwxr-xr-x   - hadoop supergroup          0 2015-01-26 16:52 /user/hadoop/shakes
  ./hadoop jar [/home/에서 부터 tfidf-SNAPShot-0.0.1-jar-with-dependency.jar까지의 경로]
 ```
 저의 경우
-hadoop@master:/home/hadoop/tools/hadoop/bin$ ./hadoop jar /home/hadoop/Homework/TFIDF/target/tfidf-0.0.1-SNAPSHOT-jar-with-dependencies.jar tfidf.WordsInCorpusTFIDF
+hadoop@master:/home/hadoop/tools/hadoop/bin$ ./hadoop jar /home/hadoop/Homework/TFIDF/target/tfidf-0.0.1-SNAPSHOT-jar-with-dependencies.jar tfidf.MyTfIdf
 ```
  ./hadoop dfs -ls 3-tf-idf 하면 3-tf-idf의 디렉토리 목록을 볼 수 있습니다. <br>
  ./hadoop dfs -cat 3-tf-idf/part-r-00000하면 tf-idf 값을 볼 수 있습니다.
