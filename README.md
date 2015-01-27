@@ -1,28 +1,31 @@
-### HadoopÀ¸·Î tf-idf°á°ú°ª ±¸ÇÏ±â
+TFIDF íŒŒì¼ì„ ì‚¬ìš©í•˜ì‹œë©´ ë©ë‹ˆë‹¤.
 
-tf-idf´Â ¾î¶² ¹®¼­¿¡¼­ ³ª¿Â ´Ü¾î°¡ ¾ó¸¶³ª ÇÊ¿äÇÑ ´Ü¾îÀÎ°¡¸¦ ¾Ë¾Æ³»´Â ¹æ¹ıÀÔ´Ï´Ù.
-¾î¶² ´Ü¾î°¡(termÀÌ) Æ¯Á¤ doc¿¡ ¸¹ÀÌ ³ª¿Ã¼ö·Ï °¡ÁßÄ¡°¡ ³ô¾ÆÁö°í, ´Ù¾çÇÑ doc¿¡ ³ª¿Ã¼ö·Ï °¡ÁßÄ¡´Â 0¿¡ ¼ö·ÅÇÏ°Ô µË´Ï´Ù.
-°¡ÁßÄ¡¸¦ ±¸ÇÏ´Â ¹æ½ÄÀº tf * log(N/n) ÀÔ´Ï´Ù. ¿©±â¼­ NÀº ÀüÃ¼ docÀÇ °¹¼ö, nÀº ´Ü¾î°¡ ³ª¿Â docÀÇ °¹¼öÀÔ´Ï´Ù.
-(Áï ¾î¶² ´Ü¾î°¡ ÀüÃ¼ doc¿¡ ´Ù³ª¿À¸é N=nÀÌ¹Ç·Î log1=0ÀÌ±â ¶§¹®¿¡ °¡ÁßÄ¡´Â 0ÀÌµÇ´Âµ¥, Áß¿äÇÏÁö ¾ÊÀº ´Ü¾îÀÏ °¡´É¼ºÀÌ ³ô´Ù´Â ÀÇ¹ÌÀÔ´Ï´Ù.)
+
+### Hadoopìœ¼ë¡œ tf-idfê²°ê³¼ê°’ êµ¬í•˜ê¸°
+
+tf-idfëŠ” ì–´ë–¤ ë¬¸ì„œì—ì„œ ë‚˜ì˜¨ ë‹¨ì–´ê°€ ì–¼ë§ˆë‚˜ í•„ìš”í•œ ë‹¨ì–´ì¸ê°€ë¥¼ ì•Œì•„ë‚´ëŠ” ë°©ë²•ì…ë‹ˆë‹¤.
+ì–´ë–¤ ë‹¨ì–´ê°€(termì´) íŠ¹ì • docì— ë§ì´ ë‚˜ì˜¬ìˆ˜ë¡ ê°€ì¤‘ì¹˜ê°€ ë†’ì•„ì§€ê³ , ë‹¤ì–‘í•œ docì— ë‚˜ì˜¬ìˆ˜ë¡ ê°€ì¤‘ì¹˜ëŠ” 0ì— ìˆ˜ë ´í•˜ê²Œ ë©ë‹ˆë‹¤.
+ê°€ì¤‘ì¹˜ë¥¼ êµ¬í•˜ëŠ” ë°©ì‹ì€ tf * log(N/n) ì…ë‹ˆë‹¤. ì—¬ê¸°ì„œ Nì€ ì „ì²´ docì˜ ê°¯ìˆ˜, nì€ ë‹¨ì–´ê°€ ë‚˜ì˜¨ docì˜ ê°¯ìˆ˜ì…ë‹ˆë‹¤.
+(ì¦‰ ì–´ë–¤ ë‹¨ì–´ê°€ ì „ì²´ docì— ë‹¤ë‚˜ì˜¤ë©´ N=nì´ë¯€ë¡œ log1=0ì´ê¸° ë•Œë¬¸ì— ê°€ì¤‘ì¹˜ëŠ” 0ì´ë˜ëŠ”ë°, ì¤‘ìš”í•˜ì§€ ì•Šì€ ë‹¨ì–´ì¼ ê°€ëŠ¥ì„±ì´ ë†’ë‹¤ëŠ” ì˜ë¯¸ì…ë‹ˆë‹¤.)
 
 =====================================
-### Vagrant ¼³Ä¡ÇÏ±â(windows¿¡¼­ ½ÇÇà)
+### Vagrant ì„¤ì¹˜í•˜ê¸°(windowsì—ì„œ ì‹¤í–‰)
 
-1. oracle Virtual Box°¡ ¾ø´Ù¸é ¼³Ä¡ÇØÁÖ¼¼¿ä.(https://www.virtualbox.org/wiki/Downloads)
-2. vagrant window ¹öÀüÀ» ¼³Ä¡ÇÕ´Ï´Ù. (https://www.vagrantup.com/downloads.html) 
-3. ¼³Ä¡ ÈÄ cmd Ã¢À» ¿­°í <br>
+1. oracle Virtual Boxê°€ ì—†ë‹¤ë©´ ì„¤ì¹˜í•´ì£¼ì„¸ìš”.(https://www.virtualbox.org/wiki/Downloads)
+2. vagrant window ë²„ì „ì„ ì„¤ì¹˜í•©ë‹ˆë‹¤. (https://www.vagrantup.com/downloads.html) - Macì¼ ê²½ìš°ì—ëŠ” macìš©ì„..
+3. ì„¤ì¹˜ í›„ cmd ì°½ì„ ì—´ê³  <br>
 C:\\> md Project<br>
 C:\\> cd Project<br>
-C:\\Project> vagrant box add ubuntu/trusty64 (ÈÄ¿¡ vagrant box list ÇÏ¸é ÇöÀç ¼³Ä¡µÈ box¸¦ º¼ ¼ö ÀÖ½À´Ï´Ù.)<br>
+C:\\Project> vagrant box add ubuntu/trusty64 (í›„ì— vagrant box list í•˜ë©´ í˜„ì¬ ì„¤ì¹˜ëœ boxë¥¼ ë³¼ ìˆ˜ ìˆìŠµë‹ˆë‹¤.)<br>
 ```
 C:\Project>vagrant box add ubuntu/trusty64
 ==> box: Loading metadata for box 'ubuntu/trusty64'
     box: URL: https://atlas.hashicorp.com/ubuntu/trusty64
 ==> box: Adding box 'ubuntu/trusty64' (v14.04) for provider: virtualbox
-¾îÂ¼°í ÀúÂ¼°í....
+ì–´ì©Œê³  ì €ì©Œê³ ....
 ```
 <br>
-C:\\Project> vagrant init ubuntu/trusty64 (VagrantfileÀÌ¶ó´Â È¯°æÆÄÀÏÀÌ ¸¸µé¾îÁı´Ï´Ù.)
+C:\\Project> vagrant init ubuntu/trusty64 (Vagrantfileì´ë¼ëŠ” í™˜ê²½íŒŒì¼ì´ ë§Œë“¤ì–´ì§‘ë‹ˆë‹¤.)
 ```
 C:\Project>vagrant init ubuntu/trusty64
 A `Vagrantfile` has been placed in this directory. You are now
@@ -30,8 +33,8 @@ ready to `vagrant up` your first virtual environment! Please read
 the comments in the Vagrantfile as well as documentation on
 `vagrantup.com` for more information on using Vagrant.
 ```
-####È¯°æÆÄÀÏ ¼³Á¤ÇÏ±â
-Vargrantfile À» ´ÙÀ½°ú °°ÀÌ ¼³Á¤ÇÕ´Ï´Ù.<br>
+####í™˜ê²½íŒŒì¼ ì„¤ì •í•˜ê¸°
+Vargrantfile ì„ ë‹¤ìŒê³¼ ê°™ì´ ì„¤ì •í•©ë‹ˆë‹¤.<br>
 ```
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
@@ -141,7 +144,7 @@ end
 end
 ```
 
-setup.sh À» ´ÙÀ½°ú °°ÀÌ ¸¸µì´Ï´Ù.<br>
+setup.sh ì„ ë‹¤ìŒê³¼ ê°™ì´ ë§Œë“­ë‹ˆë‹¤.<br>
 ```
 #!/bin/bash
 
@@ -182,8 +185,8 @@ echo "192.168.200.10 slave1" >> /etc/hosts
 echo "192.168.200.11 slave2" >> /etc/hosts
 ```
 
- C:\\Project> vagrant upÀ» ÇØÁİ´Ï´Ù. 
- (Vagrantfile°ú setup.shÆÄÀÏÀÌ ÀÖ´Â °æ·Î¿¡¼­ ÇØÁÖ¼¼¿ä. ¿À·¡°É¸³´Ï´Ù.)
+ C:\\Project> vagrant upì„ í•´ì¤ë‹ˆë‹¤. 
+ (Vagrantfileê³¼ setup.shíŒŒì¼ì´ ìˆëŠ” ê²½ë¡œì—ì„œ í•´ì£¼ì„¸ìš”. ì˜¤ë˜ê±¸ë¦½ë‹ˆë‹¤.)
 ```
 C:\Project>vagrant up
 Bringing machine 'master' up with 'virtualbox' provider...
@@ -206,21 +209,21 @@ Bringing machine 'slave2' up with 'virtualbox' provider...
     master: SSH address: 127.0.0.1:2222
     master: SSH username: vagrant
     master: SSH auth method: private key
-    ÀÌ·¸°Ô ÂßÂßÂß ¾à 30ºĞÁ¤µµ ¼Ò¿ä. ¸Ş¸ğ¸® 8±â°¡ ÀÌÇÏ½Ã¸é ¿À·ù°¡³³´Ï´Ù.
+    ì´ë ‡ê²Œ ì­‰ì­‰ì­‰ ì•½ 30ë¶„ì •ë„ ì†Œìš”. ë©”ëª¨ë¦¬ëŠ” ë„‰ë„‰í•œê²Œ ì§±...
 ```
-* ÈÄ¿¡ VMÀ» ½ÇÇà½ÃÅ°¸é Master 1´ë¿Í Slave 2´ë°¡ ½ÇÇàÁßÀÓÀ» ¾Ë ¼ö ÀÖ½À´Ï´Ù. 
+* í›„ì— VMì„ ì‹¤í–‰ì‹œí‚¤ë©´ Master 1ëŒ€ì™€ Slave 2ëŒ€ê°€ ì‹¤í–‰ì¤‘ì„ì„ ì•Œ ìˆ˜ ìˆìŠµë‹ˆë‹¤. 
 
 
-* superputty¿Í putty¸¦ ±ò°í superputty¸¦ ½ÇÇà½ÃÄÑ 3°³¸¦ ¶ç¿öÁİ´Ï´Ù.<br>
+* superputtyì™€ puttyë¥¼ ê¹”ê³  superputtyë¥¼ ì‹¤í–‰ì‹œì¼œ 3ê°œë¥¼ ë„ì›Œì¤ë‹ˆë‹¤.<br>
   (Host : 127.0.0.1:2222 Login:vagrant Password:vagrant)<br>
   (Host : 127.0.0.1:2200 Login:vagrant Password:vagrant)<br>
   (Host : 127.0.0.1:2201 Login:vagrant Password:vagrant)<br>
- 2222Æ÷Æ®´Â masterÆ÷Æ®ÀÌ°í 2200ºÎÅÍ 1¾¿ Áõ°¡ÇÏ´Â °ÍÀº slaveÆ÷Æ®ÀÔ´Ï´Ù. <br>
-2200Æ÷Æ®·Î Á¢¼ÓÇßÀ» ¶§ ¿¡·¯°¡³ª¸é 2201 2202 ½ÄÀ¸·Î Æ÷Æ®¸¦ ´Ã¸®¸é¼­ Á¢¼ÓÇØº¸½Ê½Ã¿À.<br>
+ 2222í¬íŠ¸ëŠ” masterí¬íŠ¸ì´ê³  2200ë¶€í„° 1ì”© ì¦ê°€í•˜ëŠ” ê²ƒì€ slaveí¬íŠ¸ì…ë‹ˆë‹¤. <br>
+2200í¬íŠ¸ë¡œ ì ‘ì†í–ˆì„ ë•Œ ì—ëŸ¬ê°€ë‚˜ë©´ 2201 2202 ì‹ìœ¼ë¡œ í¬íŠ¸ë¥¼ ëŠ˜ë¦¬ë©´ì„œ ì ‘ì†í•´ë³´ì‹­ì‹œì˜¤.<br>
 
 ==================================
-### Hadoop Setting ÇÏ±â(linux °¡»ó¸Ó½Å¿¡¼­ ½ÇÇà)
-À¯Àú ºñ¹Ğ¹øÈ£¸¦ ¼³Á¤ÇÕ´Ï´Ù.(Master¿Í slave1, slave2 ¸ğµÎ ¹Ù²Ù¾î Áİ´Ï´Ù.) <br>
+### Hadoop Setting í•˜ê¸°(linux ê°€ìƒë¨¸ì‹ ì—ì„œ ì‹¤í–‰)
+ìœ ì € ë¹„ë°€ë²ˆí˜¸ë¥¼ ì„¤ì •í•©ë‹ˆë‹¤.(Masterì™€ slave1, slave2 ëª¨ë‘ ë°”ê¾¸ì–´ ì¤ë‹ˆë‹¤.) <br>
 ```
   vagrant@master:~$ su
   Password: vagrant
@@ -231,7 +234,7 @@ Bringing machine 'slave2' up with 'virtualbox' provider...
   passwd: password updated successfully 
 ```
 
-master, slave1,slave2 ÀÇ È£½ºÆ® ÆÄÀÏÀ» ¼öÁ¤ÇÕ´Ï´Ù.
+master, slave1,slave2 ì˜ í˜¸ìŠ¤íŠ¸ íŒŒì¼ì„ ìˆ˜ì •í•©ë‹ˆë‹¤.
 ```
   root@master:/home/vagrant# vi /etc/hosts
   #127.0.0.1 master master
@@ -240,45 +243,45 @@ master, slave1,slave2 ÀÇ È£½ºÆ® ÆÄÀÏÀ» ¼öÁ¤ÇÕ´Ï´Ù.
   root@slave2:/home/vagrant# vi /etc/hosts
   #127.0.0.1 slave2 slave2
 ```
-ssh Á¢±ÙÁ¦¾î ¼³Á¤ÇÕ´Ï´Ù.(master¿¡¼­¸¸ ½ÇÇàÇÏ¼¼¿ä!) enterÅ°¸¸ Ä¡½Ã¸é µË´Ï´Ù.
+ssh ì ‘ê·¼ì œì–´ ì„¤ì •í•©ë‹ˆë‹¤.(masterì—ì„œë§Œ ì‹¤í–‰í•˜ì„¸ìš”!) enterí‚¤ë§Œ ì¹˜ì‹œë©´ ë©ë‹ˆë‹¤.
 ```
-root@master~#su hadoop <hadoop À¯Àú·Î ·Î±×ÀÎ ÇÑ´Ù.>
-[hadoop@master]$ ssh-keygen -t rsa 
-Generating public/private rsa key pair. 
-Enter file in which to save the key (/home/hadoop/.ssh/id_rsa): [enter] 
-Created directory '/home/hadoop/.ssh'. 
+root@master:/home/vagrant# su hadoop
+hadoop@master:/home/vagrant$ cd
+hadoop@master:/home/hadoop$ ssh-keygen -t rsa
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/hadoop//.ssh/id_rsa): [enter]
+Created directory '/home/hadoop//.ssh'.
 Enter passphrase (empty for no passphrase): [enter]
-Enter same passphrase again: [enter] 
-Your identification has been saved in /home/hadoop/.ssh/id_rsa. 
-Your public key has been saved in /home/hadoop/.ssh/id_rsa.pub. 
-The key fingerprint is:
-ae:53:56:1a:d2:98:8e:09:bf:8e:a9:15:9b:3e:d6:e5 hadoop@master
+Enter same passphrase again: [enter]
+Your identification has been saved in /home/hadoop//.ssh/id_rsa.
+Your public key has been saved in /home/hadoop//.ssh/id_rsa.pub.
+The key fingerprint is: 
+9c:3e:e5:1b:85:85:ad:63:18:59:f5:35:da:b9:3e:0d hadoop@master
 The key's randomart image is:
 +--[ RSA 2048]----+
-|                 |
-|                 |
-|       +         |
-|  .   + o .      |
-|  .o + .S+       |
-|   ++ o.+        |
-|  +. + o.        |
-| oooo E.         |
-|.o+o. ..         |
+|          ...  ..|
+|         o o .o.o|
+|        o . o..o |
+|       . + +    .|
+|        S * . E. |
+|       . + o  ...|
+|        o o    o.|
+|         . o    .|
+|          .      |
 +-----------------+
 ```
-ssh ÀÎÁõÅ°¸¦ ¹èÆ÷ÇÕ´Ï´Ù.(master¿¡¼­¸¸ ½ÇÇàÇÏ¼¼¿ä.)
-slave1, slave2¿¡°Ô ¾Æ·¡¿Í °°ÀÌ ÇØÁİ´Ï´Ù.
+ssh ì¸ì¦í‚¤ë¥¼ ë°°í¬í•©ë‹ˆë‹¤.(masterì—ì„œë§Œ ì‹¤í–‰í•˜ì„¸ìš”.)
+slave1, slave2ì—ê²Œ ì•„ë˜ì™€ ê°™ì´ í•´ì¤ë‹ˆë‹¤.
 ```
-(ÀÚ±â ÀÚ½ÅÀÇ °ø°³Å°¸¦ authorized_keys¿¡ ÀúÀåÇØÁİ´Ï´Ù.)
-hadoop@master:/home/vagrant$ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+(ìê¸° ìì‹ ì˜ ê³µê°œí‚¤ë¥¼ authorized_keysì— ì €ì¥í•´ì¤ë‹ˆë‹¤.)
+hadoop@master:/home/hadoop$ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 
-(ssh-copy-id ¸í·É¾î·Î slave1,2¿¡°Ô °ø°³Å°¸¦ ¹èÆ÷ÇÑ´Ù.)
-hadoop@master:~$ ssh-copy-id -i ~/.ssh/id_rsa.pub hadoop@slave1
+(ssh-copy-id ëª…ë ¹ì–´ë¡œ slave1, slave2ì—ê²Œ ê³µê°œí‚¤ë¥¼ ë°°í¬í•œë‹¤.)
 
-hadoop@master:/home/vagrant$ ssh-copy-id -i ~/.ssh/id_rsa.pub hadoop@slave1(slave2¿¡°Ô´Â hadoop@slave2·Î ÇØÁİ´Ï´Ù.)                                             
+hadoop@master:/home/hadoop$ ssh-copy-id -i ~/.ssh/id_rsa.pub hadoop@slave1(slave2ì—ê²ŒëŠ” hadoop@slave2ë¡œ í•´ì¤ë‹ˆë‹¤.)                                             
 The authenticity of host 'slave1 (192.168.200.10)' can't be established.
 ECDSA key fingerprint is e7:1b:73:bb:4d:00:8e:ce:26:53:67:12:c6:26:4f:cb.
-Are you sure you want to continue connecting (yes/no)? yes
+Are you sure you want to continue connecting (yes/no)? yes (yesì ì–´ì£¼ì‹œë©´ ë©ë‹ˆë‹¤.)
 /usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
 /usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
 hadoop@slave1's password: hadoop
@@ -287,45 +290,55 @@ Number of key(s) added: 1
 
 Now try logging into the machine, with:   "ssh 'hadoop@slave1'"
 and check to make sure that only the key(s) you wanted were added.
+
+
+
+hadoop@master:/home/hadoop$ ssh slave1 í–ˆì„ ë•Œ 
+hadoop@slave1:~$ ì•”í˜¸ìš”êµ¬ ì—†ì´ ì´ë ‡ê²Œ ë˜ë©´ ì •ìƒì…ë‹ˆë‹¤.
+
+hadoop@slave1:~$exit ë¡œ ë‚˜ì˜µë‹ˆë‹¤.
+
 ```
 
-HadoopÀ» ´Ù½Ã ¼öÁ¤ÇÕ´Ï´Ù.
+Hadoopì„ ë‹¤ì‹œ ìˆ˜ì •í•©ë‹ˆë‹¤.
 
-masterÀÇ °æ¿ì
+masterì˜ ê²½ìš°
 ```
-hadoop@master:/home/hadoop$ rm -rf ~/hdfs  <±âÁ¸¿¡ »ı¼ºµÈ ~/hdfsÆú´õ¸¦ »èÁ¦ÇÑ´Ù.>
-hadoop@master:/home/hadoop$ mkdir -p ./hdfs/name  <namenodeÀÇ ÀúÀå¼Ò > 
-hadoop@master:/home/hadoop$ chmod 755 -R ./hdfs   < Æú´õÀÇ ±ÇÇÑÀ» 755·Î ¼³Á¤ÇØÁØ´Ù. >
+hadoop@master:/home/hadoop$ cd
+hadoop@master:/home/hadoop$ rm -rf ~/hdfs  <ê¸°ì¡´ì— ìƒì„±ëœ ~/hdfsí´ë”ë¥¼ ì‚­ì œí•œë‹¤.>
+hadoop@master:/home/hadoop$ mkdir -p ./hdfs/name  <namenodeì˜ ì €ì¥ì†Œ > 
+hadoop@master:/home/hadoop$ chmod 755 -R ./hdfs   < í´ë”ì˜ ê¶Œí•œì„ 755ë¡œ ì„¤ì •í•´ì¤€ë‹¤. >
 ```
 
-slave1,2ÀÇ °æ¿ì
+slave1, slave2ì˜ ê²½ìš° 
 ```
+rootì¼ ê²½ìš°
+root@slave1:~# su hadoop
+hadoop@slave1:/root$ cd
+
 hadoop@slave1:/home/hadoop$ rm -rf ./hdfs
 hadoop@slave1:/home/hadoop$ mkdir -p ./hdfs/data
 hadoop@slave1:/home/hadoop$ chmod 755 -R ./hdfs
 ```
 
-Hadoop È¯°æº¯¼ö¸¦ ¼¼ÆÃÇÕ´Ï´Ù.
+Hadoop í™˜ê²½ë³€ìˆ˜ë¥¼ ì„¸íŒ…í•©ë‹ˆë‹¤.(ì´ì œë¶€í„° masterì—ì„œë§Œ ì‚¬ìš©í•©ë‹ˆë‹¤.)
 ```
 hadoop@master:/home/hadoop$ echo $JAVA_HOME
-/home/hadoop/tools/jdk (ÇöÀç ±âº» path·Î µÇ¾îÀÖ´Â jdkÀÔ´Ï´Ù. º¹»çÇØµÎ¼¼¿ä.)
+/home/hadoop/tools/jdk (í˜„ì¬ ê¸°ë³¸ pathë¡œ ë˜ì–´ìˆëŠ” jdkì…ë‹ˆë‹¤. ë³µì‚¬í•´ë‘ì„¸ìš”.)
 hadoop@master:/home/hadoop$ cd tools/hadoop/conf
 ```
-  hadoop-env.sh È¯°æ¼³Á¤
+  hadoop-env.sh í™˜ê²½ì„¤ì •
 ```
 hadoop@master:/home/hadoop/tools/hadoop/conf$ vi hadoop-env.sh
 # The java implementation to use.  Required.
-export JAVA_HOME= /home/hadoop/tools/jdk
-(JAVA_HOMEÀÇ ÁÖ¼®À» Á¦°ÅÇØÁÖ°í ÀÚ½ÅÀÇ JDK ¼³Ä¡ °æ·Î·Î ¹Ù²ãÁØ´Ù.)
-
+export JAVA_HOME= /home/hadoop/tools/jdk (JAVA_HOMEì˜ ì£¼ì„ì„ ì œê±°í•´ì£¼ê³  ìì‹ ì˜ JDK ì„¤ì¹˜ ê²½ë¡œë¡œ ë°”ê¿”ì¤€ë‹¤.)
 export HADOOP_HOME=/home/hadoop/tools/hadoop
-export HADOOP_HOME_WARN_SUPPRESS=¡°TRUE¡±
-(À§ 2ÁÙÀ» Ãß°¡ÇØÁØ´Ù. ¶È°°ÀÌ ÀÔ·ÂÇÏ¸é µÈ´Ù.) 
-
+export HADOOP_HOME_WARN_SUPPRESS=â€œTRUEâ€
+(ìœ„ 2ì¤„ì„ ì¶”ê°€í•´ì¤€ë‹¤. ë˜‘ê°™ì´ ì…ë ¥í•˜ë©´ ëœë‹¤.) 
 export HADOOP_OPTS=-server
-(HADOOP_OPTS ÀÇ ÁÖ¼®À» ÇØÁ¦ÇØÁØ´Ù.)
+(HADOOP_OPTS ì˜ ì£¼ì„ì„ í•´ì œí•´ì¤€ë‹¤.)
 ```
-  core-site.xml È¯°æ¼³Á¤(´Ù¸¥°Ç ±×´ë·Î µÎ½Ã°í configuration¾È¿¡¸¸ ¼öÁ¤ÇØÁİ´Ï´Ù.)
+  core-site.xml í™˜ê²½ì„¤ì •(ë‹¤ë¥¸ê±´ ê·¸ëŒ€ë¡œ ë‘ì‹œê³  configurationì•ˆì—ë§Œ ìˆ˜ì •í•´ì¤ë‹ˆë‹¤.)
 ```
 hadoop@master:/home/hadoop/tools/hadoop/conf$ vi core-site.xml
 <configuration>
@@ -335,7 +348,7 @@ hadoop@master:/home/hadoop/tools/hadoop/conf$ vi core-site.xml
         </property>
 </configuration>
 ```
-  hdfs-site.xml È¯°æ¼³Á¤(´Ù¸¥°Ç ±×´ë·Î µÎ½Ã°í configuration¾È¿¡¸¸ ¼öÁ¤ÇØÁİ´Ï´Ù.)
+  hdfs-site.xml í™˜ê²½ì„¤ì •(ë‹¤ë¥¸ê±´ ê·¸ëŒ€ë¡œ ë‘ì‹œê³  configurationì•ˆì—ë§Œ ìˆ˜ì •í•´ì¤ë‹ˆë‹¤.)
 ```
 hadoop@master:/home/hadoop/tools/hadoop/conf$ vi hdfs-site.xml
 <configuration>
@@ -356,29 +369,33 @@ hadoop@master:/home/hadoop/tools/hadoop/conf$ vi hdfs-site.xml
 </configuration>
 
 ```
-  mapred-site.xml È¯°æ¼³Á¤(´Ù¸¥°Ç ±×´ë·Î µÎ½Ã°í configuration¾È¿¡¸¸ ¼öÁ¤ÇØÁİ´Ï´Ù.)
+  mapred-site.xml í™˜ê²½ì„¤ì •(ë‹¤ë¥¸ê±´ ê·¸ëŒ€ë¡œ ë‘ì‹œê³  configurationì•ˆì—ë§Œ ìˆ˜ì •í•´ì¤ë‹ˆë‹¤.)
 ```
 hadoop@master:/home/hadoop/tools/hadoop/conf$ vi mapred-site.xml
-<property>
- <name>mapred.job.tracker</name>
- <value>master:9001</value>
-</property>
+<configuration>
+    <property>
+        <name>mapred.job.tracker</name>
+        <value>master:9001</value>
+    </property>
+</configuration>
+
 
 ```
-  masters È¯°æ¼³Á¤
+  masters í™˜ê²½ì„¤ì •
 ```
-localhost¸¦ Áö¿ì°í master·Î º¯°æ
+localhostë¥¼ ì§€ìš°ê³  masterë¡œ ë³€ê²½
 ```
-  slaves È¯°æ¼³Á¤(´Ù¸¥°Ç ±×´ë·Î µÎ½Ã°í configuration¾È¿¡¸¸ ¼öÁ¤ÇØÁİ´Ï´Ù.)
+  slaves í™˜ê²½ì„¤ì •(ë‹¤ë¥¸ê±´ ê·¸ëŒ€ë¡œ ë‘ì‹œê³  configurationì•ˆì—ë§Œ ìˆ˜ì •í•´ì¤ë‹ˆë‹¤.)
 ```
-localhost¸¦ Áö¿ì°í 
+localhostë¥¼ ì§€ìš°ê³  
 slave1
 slave2
-·Î º¯°æ
+ë¡œ ë³€ê²½
 ```
-conf ÆÄÀÏÁß ¼öÁ¤µÈ ÆÄÀÏ¸¸ slave1,2·Î º¸³»Áİ´Ï´Ù.
+conf íŒŒì¼ì¤‘ ìˆ˜ì •ëœ íŒŒì¼ë§Œ slave1, slave2ë¡œ ë³´ë‚´ì¤ë‹ˆë‹¤.
 ```
 hadoop@master:/home/hadoop/tools/hadoop/conf$ rsync -av /home/hadoop/tools/hadoop/conf slave1:/home/hadoop/tools/hadoop
+(ì—¬ê¸°ì„œ slave1ì„ slave2ë¡œ ë°”ê¾¸ì…”ì„œ í•œë²ˆ ë” ì‹¤í–‰í•˜ì‹œë©´ ë©ë‹ˆë‹¤.)
 sending incremental file list
 conf/
 conf/core-site.xml
@@ -391,7 +408,7 @@ conf/slaves
 sent 2,602 bytes  received 188 bytes  1,860.00 bytes/sec
 total size is 34,456  speedup is 12.35
 ```
-master node·Î °¡¼­ namenode¸¦ Æ÷¸ËÇØÁİ´Ï´Ù.
+master nodeë¡œ ê°€ì„œ namenodeë¥¼ í¬ë§·í•´ì¤ë‹ˆë‹¤.
 ```
 hadoop@master:/home/hadoop/tools/hadoop/conf$ cd /home/hadoop/tools/hadoop/bin
 hadoop@master:/home/hadoop/tools/hadoop/bin$ ./hadoop namenode -format
@@ -405,7 +422,7 @@ STARTUP_MSG:   version = 1.2.1
 STARTUP_MSG:   build = https://svn.apache.org/repos/asf/hadoop/common/branches/branch-1.2 -r 1503152; compiled by 'mattf' on Mon Jul 22 15:23:09 PDT 2013
 STARTUP_MSG:   java = 1.7.0_65
 ************************************************************/
-Re-format filesystem in /home/hadoop/hdfs/name ? (Y or N) Y(¹İµå½Ã Y´ë¹®ÀÚ!!!!)
+Re-format filesystem in /home/hadoop/hdfs/name ? (Y or N) Y(ë°˜ë“œì‹œ YëŒ€ë¬¸ì!!!!)
 15/01/26 12:22:06 INFO util.GSet: Computing capacity for map BlocksMap
 15/01/26 12:22:06 INFO util.GSet: VM type       = 64-bit
 15/01/26 12:22:06 INFO util.GSet: 2.0% max memory = 1013645312
@@ -428,7 +445,7 @@ SHUTDOWN_MSG: Shutting down NameNode at master/192.168.200.2
 ************************************************************/
 ```
 
-bin µğ·ºÅä¸®·Î µé¾î°¡¼­ start-all.sh ¸í·É¾î·Î master¿Í slave1,2¸¦ ½ÇÇàÇÕ´Ï´Ù. 
+bin ë””ë ‰í† ë¦¬ë¡œ ë“¤ì–´ê°€ì„œ start-all.sh ëª…ë ¹ì–´ë¡œ masterì™€ slave1,2ë¥¼ ì‹¤í–‰í•©ë‹ˆë‹¤. 
 ```
 hadoop@master:/home/hadoop/tools/hadoop/bin$ ./start-all.sh
 starting namenode, logging to /home/hadoop/tools/hadoop/logs/hadoop-hadoop-namenode-master.out
@@ -439,8 +456,8 @@ starting jobtracker, logging to /home/hadoop/tools/hadoop/logs/hadoop-hadoop-job
 slave1: starting tasktracker, logging to /home/hadoop/tools/hadoop/logs/hadoop-hadoop-tasktracker-slave1.out
 slave2: starting tasktracker, logging to /home/hadoop/tools/hadoop/logs/hadoop-hadoop-tasktracker-slave2.out
 ```
-jps ¸í·É¾î¸¦ »ç¿ëÇØ master¿Í slave1,2 ¿¡ Á¦´ë·Î µÇ¾ú´ÂÁö È®ÀÎÇÕ´Ï´Ù.
-masterÀÇ °æ¿ì ÀÌ·¸°Ô 4°³°¡ ¶ß¸é µË´Ï´Ù.
+jps ëª…ë ¹ì–´ë¥¼ ì‚¬ìš©í•´ masterì™€ slave1,2 ì— ì œëŒ€ë¡œ ë˜ì—ˆëŠ”ì§€ í™•ì¸í•©ë‹ˆë‹¤.
+masterì˜ ê²½ìš° ì´ë ‡ê²Œ 4ê°œê°€ ëœ¨ë©´ ë©ë‹ˆë‹¤.
 ```
 hadoop@master:/home/hadoop/tools/hadoop/bin$ jps
 12882 SecondaryNameNode
@@ -449,57 +466,73 @@ hadoop@master:/home/hadoop/tools/hadoop/bin$ jps
 12652 NameNode
 
 ```
-slave1, slave2ÀÇ °æ¿ì ÀÌ·¸°Ô 3°³°¡ ¶ß¸é µË´Ï´Ù.
+slave1, slave2ì˜ ê²½ìš° ì´ë ‡ê²Œ 3ê°œê°€ ëœ¨ë©´ ë©ë‹ˆë‹¤.
 ```
 hadoop@slave2:/home$ jps
 13337 DataNode
 13463 TaskTracker
 13529 Jps
 ```
-È¤½Ã 4°³¿Í 3°³°¡ ¾È¶ã°æ¿ì¿¡´Â (5.ÇÏµÓÀ» ´Ù½Ã ¼öÁ¤ÇÕ´Ï´Ù. )·Î °¡¼­ hdfsÆú´õ¸¦ rm-rfÇÏ´Â°ÍºÎÅÍ ´Ù½Ã ½ÃÀÛÇÏ¼¼¿ä.
+í˜¹ì‹œ 4ê°œì™€ 3ê°œê°€ ì•ˆëœ°ê²½ìš°ì—ëŠ” ./stop-all.shì„ ì‹¤í–‰ì‹œí‚¤ì‹œê³  <br>
+(í•˜ë‘¡ì„ ë‹¤ì‹œ ìˆ˜ì •í•©ë‹ˆë‹¤. )ë¡œ ê°€ì„œ hdfsí´ë”ë¥¼ rm-rfí•˜ì‹œê³  namenodeë¥¼ ë‹¤ì‹œ í¬ë§·í•˜ì‹  í›„ì— ./start-all.shë¡œ ë‹¤ì‹œ ì‹œì‘í•˜ì„¸ìš”.
 
 ==================================
-###maven ¼³Ä¡ÇÏ±â(linux °¡»ó¸Ó½Å¿¡¼­ ½ÇÇà)
-####master¿¡¼­¸¸ ½ÇÇàÇÏ¼¼¿ä.
-¸ŞÀÌºì ´Ù¿î·Îµå
- wget http://mirrors.gigenet.com/apache/maven/maven-3/3.0.5/binaries/apache-maven-3.0.5-bin.tar.gz
- su root  (root °èÁ¤À¸·Î loginÇÕ´Ï´Ù.)
- Password : vagrant
- 
- tar -zxvf apache-maven-3.0.5-bin.tar.gz -C /opt/ ·Î ¾ĞÃàÀ» opt Æú´õ¿¡ Ç®¾îÁİ´Ï´Ù.
- ln -s /opt/apache-maven-3.0.5 /opt/maven À¸·Î ¼ÒÇÁÆ®¸µÅ©¸¦ °É¾îÁİ´Ï´Ù.
- vi /etc/profile À¸·Î È¯°æ¼³Á¤À» ÇØÁİ´Ï´Ù.<br>
+###maven ì„¤ì¹˜í•˜ê¸°(linux ê°€ìƒë¨¸ì‹ ì—ì„œ ì‹¤í–‰)
+####masterì—ì„œë§Œ ì‹¤í–‰í•˜ì„¸ìš”.
+ë©”ì´ë¸ ë‹¤ìš´ë¡œë“œ <br>
+
+hadoop@master:/home/hadoop$ su root (password :vagrant) <br>
+root@master:/home/hadoop# cd <br>
+root@master:~# vi /etc/sudoers <br>
+
 ```
-(/etc/profile ³»ÀÇ ¾Æ¹«°÷ÀÌ³ª Ãß°¡ÇØÁİ´Ï´Ù.)
-  export M2_HOME=/opt/maven
+sudo ALL=(ALL:ALL) ALL 
+ì•„ë˜
+hadoop  ALL=(ALL:ALL) ALL 
+ì„ ì¶”ê°€í•´ì¤ë‹ˆë‹¤. (hadoopì—ê²Œ sudo ê¶Œí•œì„ ì¤ë‹ˆë‹¤.)
+```
+root@master:~# su hadoop <br>
+hadoop@master:/root$ cd <br>
+hadoop@master:/home/hadoop$ sudo apt-get install maven <br>
+hadoop@master:/home/hadoop$ wget http://mirrors.gigenet.com/apache/maven/maven-3/3.0.5/binaries/apache-maven-3.0.5-bin.tar.gz<br>
+hadoop@master:/home/hadoop$ tar -zxvf apache-maven-3.0.5-bin.tar.gz -C ./ <br>
+hadoop@master:/home/hadoop$ ln -s apache-maven-3.0.5 ./maven <br>
+hadoop@master:/home/hadoop$ vi .bash_profile 
+
+```
+(.bash_profile ë‚´ì— ì¶”ê°€í•´ì¤ë‹ˆë‹¤.)
+  export M2_HOME=/home/hadoop/maven
   export PATH=$PATH:$M2_HOME/bin
 ```
- source /etc/profile À¸·Î È¯°æº¯¼ö¸¦ »õ·Î°íÄ§ÇØÁİ´Ï´Ù.
- mvn -versionÀ» »ç¿ëÇßÀ» ¶§ ÀÌ·¸°Ô ³ª¿À¸é maven ¼³Ä¡°¡ ¿Ï·áµÈ °ÍÀÔ´Ï´Ù.
+
+hadoop@master:/home/hadoop$ source .bash_profile (í™˜ê²½ë³€ìˆ˜ ìƒˆë¡œê³ ì¹¨) <br>
+mvn -versionì„ ì‚¬ìš©í–ˆì„ ë•Œ ì´ë ‡ê²Œ ë‚˜ì˜¤ë©´ maven ì„¤ì¹˜ê°€ ì™„ë£Œëœ ê²ƒì…ë‹ˆë‹¤.
 ```
-root@master:/home/hadoop# mvn -version
+hadoop@master:/home/hadoop$ mvn -v
 Apache Maven 3.0.5 (r01de14724cdef164cd33c7c8c2fe155faf9602da; 2013-02-19 13:51:28+0000)
-Maven home: /opt/maven
+Maven home: /home/hadoop/maven
 Java version: 1.7.0_65, vendor: Oracle Corporation
 Java home: /usr/lib/jvm/java-7-openjdk-amd64/jre
 Default locale: en_US, platform encoding: UTF-8
 OS name: "linux", version: "3.13.0-44-generic", arch: "amd64", family: "unix"
 ```
+
 =====================================
-###GitÀ¸·Î ÆÄÀÏ ºÒ·¯¿À±â(linux °¡»ó¸Ó½Å¿¡¼­ ½ÇÇà)
-####master¿¡¼­¸¸ ½ÇÇàÇÏ¼¼¿ä.
-1. root¿¡¼­ apt-get install libcurl4-gnutls-dev libexpat1-dev gettext \libz-dev libssl-dev ¸¦ ÀÔ·ÂÇÕ´Ï´Ù.
-2. apt-get install git À¸·Î ±êÀ» ¼³Ä¡ÇÕ´Ï´Ù. 
+###Gitìœ¼ë¡œ íŒŒì¼ ë¶ˆëŸ¬ì˜¤ê¸°(linux ê°€ìƒë¨¸ì‹ ì—ì„œ ì‹¤í–‰)
+####masterì—ì„œë§Œ ì‹¤í–‰í•˜ì„¸ìš”.
+
+1. hadoop@master:/home/hadoop$ sudo apt-get install libcurl4-gnutls-dev libexpat1-dev gettext \libz-dev libssl-dev
+2. hadoop@master:/home/hadoop$ sudo apt-get install git
 3. hadoop@master:/home/hadoop$ git clone https://github.com/gogodbrl/Homework.git <br>
-   (¡èÀÌ°Å root¸é »ğÁúÇÏ´Ï±î ¹İµå½Ã hadoop@master°èÁ¤À¸·Î!!!) <br>
-ÇÏ¸é ÇöÀç ¼³Ä¡µÇ¾î ÀÖ´Â ÀÌ¸§ Homework¸¦ °¡Á®¿É´Ï´Ù.
+   (â†‘ì´ê±° í˜¹ì‹œ rootë©´ ì‚½ì§ˆí•˜ë‹ˆê¹Œ ë°˜ë“œì‹œ hadoop@masterê³„ì •ìœ¼ë¡œ!!!) <br>
 
 =======================================
-###wordfrequency±¸ÇÏ±â
+###wordfrequencyêµ¬í•˜ê¸°
 
-1. hadoop@master:/home/hadoop/Homework/mfreq$ mvn package
+hadoop@master:/home/hadoop$ cd Homework/TFIDF <br>
+hadoop@master:/home/hadoop/Homework/TFIDF$ mvn package <br>
 ```
-¾îÂ¼°í ÀúÂ¼°í,, 
+ì–´ì©Œê³  ì €ì©Œê³ ,, 
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
 [INFO] Total time: 13.640s
@@ -507,21 +540,21 @@ OS name: "linux", version: "3.13.0-44-generic", arch: "amd64", family: "unix"
 [INFO] Final Memory: 19M/59M
 [INFO] ------------------------------------------------------------------------
 ```
-2. hadoop@master:/home/hadoop$ cd /home/hadoop/tools/hadoop/bin
-3. hadoop@master:/home/hadoop/tools/hadoop/bin$ ./hadoop dfs -put [shakespeareÀÇ ¾ĞÃàÀ» Ç®¾î³õÀº °æ·Î] shakespeare
+ hadoop@master:/home/hadoop$ cd /home/hadoop/tools/hadoop/bin <br>
+ hadoop@master:/home/hadoop/tools/hadoop/bin$ ./hadoop dfs -put [shakespeareì˜ ì••ì¶•ì„ í’€ì–´ë†“ì€ ê²½ë¡œ] shakespeare <br>
 ```
-ÀúÀÇ °æ¿ì¿¡´Â 
-hadoop@master:/home/hadoop/tools/hadoop/bin$ ./hadoop dfs -put /home/hadoop/Homework/mfreq/files/shakespeare shakespeare
-·Î Çß½À´Ï´Ù.
+ì €ì˜ ê²½ìš°ì—ëŠ” 
+hadoop@master:/home/hadoop/tools/hadoop/bin$ ./hadoop dfs -put /home/hadoop/Homework/data/shakespeare shakespeare
+ë¡œ í–ˆìŠµë‹ˆë‹¤.
 ```
-4. ./hadoop jar [/home/¿¡¼­ ºÎÅÍ mFreq-SNAPShot-0.0.1-jar-with-dependency.jar±îÁöÀÇ °æ·Î] 
+ ./hadoop jar [/home/ì—ì„œ ë¶€í„° tfidf-SNAPShot-0.0.1-jar-with-dependency.jarê¹Œì§€ì˜ ê²½ë¡œ] [mainclassê²½ë¡œ(íŒ¨í‚¤ì§€ëª….í´ë˜ìŠ¤ëª…)] 
 ```
-ÀúÀÇ °æ¿ì¿¡´Â 
-hadoop@master:/home/hadoop/tools/hadoop/bin$ ./hadoop dfs -put /home/hadoop/Homework/mfreq/target/mfreq-0.0.1-SNAPSHOT-jar-with-dependencies.jar shakespeare
-·Î Çß½À´Ï´Ù.
+ì €ì˜ ê²½ìš°ì—ëŠ” 
+hadoop@master:/home/hadoop/tools/hadoop/bin$ ./hadoop jar /home/hadoop/Homework/TFIDF/target/tfidf-0.0.1-SNAPSHOT-jar-with-dependencies.jar tfidf.WordFrequenceInDocument 
+ë¡œ í–ˆìŠµë‹ˆë‹¤.
 ```
 
-5. Map°ú reduce°¡ ¿Ï¼ºµÇ¸é ./hadoop dfs -ls ¸¦ ÀÔ·ÂÇßÀ» ¶§ 1-word-freq¶ó´Â µğ·ºÅä¸®°¡ ¿Ï¼ºµÈ °ÍÀ» º¼ ¼ö ÀÖ½À´Ï´Ù.
+ Mapê³¼ reduceê°€ ì™„ì„±ë˜ë©´ ./hadoop dfs -ls ë¥¼ ì…ë ¥í–ˆì„ ë•Œ 1-word-freqë¼ëŠ” ë””ë ‰í† ë¦¬ê°€ ì™„ì„±ëœ ê²ƒì„ ë³¼ ìˆ˜ ìˆìŠµë‹ˆë‹¤.
 ```
 hadoop@master:/home/hadoop/tools/hadoop/bin$ ./hadoop dfs -ls
 Found 2 items
@@ -529,20 +562,17 @@ drwxr-xr-x   - hadoop supergroup          0 2015-01-26 16:56 /user/hadoop/1-word
 drwxr-xr-x   - hadoop supergroup          0 2015-01-26 16:52 /user/hadoop/shakespeare
 ```
 hadoop@master:/home/hadoop/tools/hadoop/bin$ ./hadoop dfs -cat 1-word-freq/part-r-00000
-ÇÏ¸é ÄÜ¼ÖÃ¢¿¡ Âï¾îº¼ ¼ö ÀÖ½À´Ï´Ù.
+í•˜ë©´ ì½˜ì†”ì°½ì— ì°ì–´ë³¼ ìˆ˜ ìˆìŠµë‹ˆë‹¤.
 
 ======================================
-###wordcount±¸ÇÏ±â
+###documentcountêµ¬í•˜ê¸°
 
-1. hadoop@master:/home/hadoop/Homework/mcount$ mvn package
-2. hadoop@master:/home/hadoop/Homework/mcount$ cd /home/hadoop/tools/hadoop/bin
-(¾Æ±î hdfs¿¡ putÇØÁØ shakespeare°¡ ÀÖÀ¸¹Ç·Î ¹Ù·Î jarÆÄÀÏ·Î ÀÔ·ÂÇØº¾´Ï´Ù.)
-3. ./hadoop jar [/home/¿¡¼­ ºÎÅÍ mFreq-SNAPShot-0.0.1-jar-with-dependency.jar±îÁöÀÇ °æ·Î]
-(ÀúÀÇ °æ¿ì´Â
-hadoop@master:/home/hadoop/tools/hadoop/bin$ ./hadoop jar /home/hadoop/Homework/mcount/target/mcount-0.0.1-SNAPSHOT-jar-with-dependencies.jar
-·Î Çß½À´Ï´Ù.)
+
+ ./hadoop jar [/home/ì—ì„œ ë¶€í„° tfidf-SNAPShot-0.0.1-jar-with-dependency.jarê¹Œì§€ì˜ ê²½ë¡œ] [mainClass ê²½ë¡œ]
 ```
-hadoop@master:/home/hadoop/tools/hadoop/bin$ ./hadoop jar /home/hadoop/Homework/mcount/target/mcount-0.0.1-SNAPSHOT-jar-with-dependencies.jar
+(ì €ì˜ ê²½ìš°ëŠ”
+hadoop@master:/home/hadoop/tools/hadoop/bin$ ./hadoop jar /home/hadoop/Homework/TFIDF/target/tfidf-0.0.1-SNAPSHOT-jar-with-dependencies.jar tfidf.WordCountsInDocuments
+ë¡œ í–ˆìŠµë‹ˆë‹¤.)
 15/01/26 17:05:41 INFO input.FileInputFormat: Total input paths to process : 1
 15/01/26 17:05:41 INFO util.NativeCodeLoader: Loaded the native-hadoop library
 15/01/26 17:05:41 WARN snappy.LoadSnappy: Snappy native library not loaded
@@ -552,33 +582,45 @@ hadoop@master:/home/hadoop/tools/hadoop/bin$ ./hadoop jar /home/hadoop/Homework/
 15/01/26 17:06:01 INFO mapred.JobClient:  map 100% reduce 33%
 15/01/26 17:06:05 INFO mapred.JobClient:  map 100% reduce 100%
 15/01/26 17:06:06 INFO mapred.JobClient: Job complete: job_201501261614_0002
-ÀÌ·±½ÄÀ¸·Î ¶ß¸é µË´Ï´Ù.
+ì´ëŸ°ì‹ìœ¼ë¡œ ëœ¨ë©´ ë©ë‹ˆë‹¤.
+
 ```
-4. Map°ú reduce°¡ ¿Ï¼ºµÇ¸é ./hadoop dfs -ls ¸¦ ÀÔ·ÂÇßÀ» ¶§ 2-word-counts¶ó´Â µğ·ºÅä¸®°¡ ¿Ï¼ºµÈ °ÍÀ» º¼ ¼ö ÀÖ½À´Ï´Ù.
+ Mapê³¼ reduceê°€ ì™„ì„±ë˜ë©´ ./hadoop dfs -ls ë¥¼ ì…ë ¥í–ˆì„ ë•Œ 2-word-countsë¼ëŠ” ë””ë ‰í† ë¦¬ê°€ ì™„ì„±ëœ ê²ƒì„ ë³¼ ìˆ˜ ìˆìŠµë‹ˆë‹¤.
 ```
 hadoop@master:/home/hadoop/tools/hadoop/bin$ ./hadoop dfs -ls
 Found 3 items
 drwxr-xr-x   - hadoop supergroup          0 2015-01-26 16:56 /user/hadoop/1-word-freq
 drwxr-xr-x   - hadoop supergroup          0 2015-01-26 17:06 /user/hadoop/2-word-counts
 drwxr-xr-x   - hadoop supergroup          0 2015-01-26 16:52 /user/hadoop/shakespeare
-
 ```
 
 =================================
-###tf-idf°ª ±¸ÇÏ±â
+###tf-idfê°’ êµ¬í•˜ê¸°
 
-
-1. hadoop@master:/home/hadoop/Homework/mtfidf$ mvn package
-2. hadoop@master:/home/hadoop/Homework/mtfidf$ cd /home/hadoop/tools/hadoop/bin
-3. ./hadoop jar [/home/¿¡¼­ ºÎÅÍ mFreq-SNAPShot-0.0.1-jar-with-dependency.jar±îÁöÀÇ °æ·Î]
+ ./hadoop jar [/home/ì—ì„œ ë¶€í„° tfidf-SNAPShot-0.0.1-jar-with-dependency.jarê¹Œì§€ì˜ ê²½ë¡œ]
 ```
-ÀúÀÇ °æ¿ì
-hadoop@master:/home/hadoop/tools/hadoop/bin$ ./hadoop jar /home/hadoop/Homework/mtfidf/target/mtfidf-0.0.1-SNAPSHOT-jar-with-dependencies.jar
+ì €ì˜ ê²½ìš°
+hadoop@master:/home/hadoop/tools/hadoop/bin$ ./hadoop jar /home/hadoop/Homework/TFIDF/target/tfidf-0.0.1-SNAPSHOT-jar-with-dependencies.jar tfidf.WordsInCorpusTFIDF
 ```
-4. ./hadoop dfs -ls 3-tf-idf ÇÏ¸é 3-tf-idfÀÇ µğ·ºÅä¸® ¸ñ·ÏÀ» º¼ ¼ö ÀÖ½À´Ï´Ù.
+ ./hadoop dfs -ls 3-tf-idf í•˜ë©´ 3-tf-idfì˜ ë””ë ‰í† ë¦¬ ëª©ë¡ì„ ë³¼ ìˆ˜ ìˆìŠµë‹ˆë‹¤. <br>
+ ./hadoop dfs -cat 3-tf-idf/part-r-00000í•˜ë©´ tf-idf ê°’ì„ ë³¼ ìˆ˜ ìˆìŠµë‹ˆë‹¤.
+```
+zealous@comedies        0.0
+zealous@histories       0.0
+zealous@poems   0.0
+zeals@tragedies 1.6094379124341003
+zed@tragedies   1.6094379124341003
+zenelophon@comedies     1.6094379124341003
+zenith@comedies 1.6094379124341003
+zephyrs@tragedies       1.6094379124341003
+zir@tragedies   3.2188758248682006
+zo@tragedies    1.6094379124341003
+zodiac@tragedies        1.6094379124341003
+zodiacs@comedies        1.6094379124341003
+zone@tragedies  1.6094379124341003
+zounds@histories        10.39720770839918
+zounds@tragedies        4.1588830833596715
+zwaggered@tragedies     1.6094379124341003
 
-
-===========================
-###°á°ú
- ./hadoop dfs -cat 3-tf-idf/part-r-00000ÇÏ¸é tf-idf °ªÀ» º¼ ¼ö ÀÖ½À´Ï´Ù.
- 
+ì´ëŸ°ì‹ìœ¼ë¡œ ë‚˜ì˜µë‹ˆë‹¤.
+```
