@@ -1,4 +1,4 @@
-package com.example.app.exampleApp;
+package tfidf;
 import java.io.IOException;
 
 import org.apache.hadoop.conf.Configuration;

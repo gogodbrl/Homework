@@ -1,4 +1,4 @@
-package com.example.app.exampleApp;
+package tfidf;
 import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

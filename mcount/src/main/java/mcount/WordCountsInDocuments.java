@@ -22,14 +22,14 @@ public class WordCountsInDocuments extends Configured implements Tool {
 
 	public int run(String[] args) throws Exception {
 
-		Configuration conf = getConf();
-		Job job = new Job(conf, "Count n");
-
+		Configuration conf = getConf(); //hadoop-site.cml과 core-site.xml 존재하는 파일에 읽어. 
+		Job job = new Job(conf, "Count n"); //create job(configration, jobName)
+		
 		job.setJarByClass(WordCountsInDocuments.class);
-		job.setMapperClass(WordCountsForDocsMapper.class);
-		job.setReducerClass(WordCountsForDocsReducer.class);
+		job.setMapperClass(WordCountsForDocsMapper.class); //make map class
+		job.setReducerClass(WordCountsForDocsReducer.class); //make reduce class
 
-		job.setOutputKeyClass(Text.class);
+		job.setOutputKeyClass(Text.class);  
 		job.setOutputValueClass(Text.class);
 
 		FileInputFormat.addInputPath(job, new Path(INPUT_PATH));
