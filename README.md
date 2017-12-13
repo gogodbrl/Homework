@@ -26,6 +26,8 @@ C:\Project>vagrant box add ubuntu/trusty64
 ```
 <br>
 C:\\Project> vagrant init ubuntu/trusty64 (Vagrantfile이라는 환경파일이 만들어집니다.)
+<br>
+
 ```
 C:\Project>vagrant init ubuntu/trusty64
 A 'Vagrantfile' has been placed in this directory. You are now
