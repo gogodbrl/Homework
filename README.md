@@ -28,28 +28,29 @@ C:\Project>vagrant box add ubuntu/trusty64
 C:\\Project> vagrant init ubuntu/trusty64 (Vagrantfile이라는 환경파일이 만들어집니다.)
 ```
 C:\Project>vagrant init ubuntu/trusty64
-A `Vagrantfile` has been placed in this directory. You are now
-ready to `vagrant up` your first virtual environment! Please read
+A 'Vagrantfile' has been placed in this directory. You are now
+ready to 'vagrant up' your first virtual environment! Please read
 the comments in the Vagrantfile as well as documentation on
-`vagrantup.com` for more information on using Vagrant.
+'vagrantup.com' for more information on using Vagrant.
 ```
-####환경파일 설정하기
-Vargrantfile 을 다음과 같이 설정합니다.<br>
-```
-# -*- mode: ruby -*-
-# vi: set ft=ruby :
+<br>
+### 환경파일 설정하기
+Vargrantfile 을 다음과 같이 설정합니다.
 
-# All Vagrant configuration is done below. The "2" in Vagrant.configure
-# configures the configuration version (we support older styles for
-# backwards compatibility). Please don't change it unless you know what # you're doing.
-Vagrant.configure(2) do |config|
+```
+ # -*- mode: ruby -*-
+ # vi: set ft=ruby :
+ # All Vagrant configuration is done below. The "2" in Vagrant.configure
+ # configures the configuration version (we support older styles for
+ # backwards compatibility). Please don't change it unless you know what # you're doing.
+ Vagrant.configure(2) do |config|
   # The most common configuration options are documented and commented below.
   # For a complete reference, please see the online documentation at
   # https://docs.vagrantup.com.
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-# master node
+ # master node
   config.vm.define "master" do |master|
     master.vm.provider "virtualbox" do |v|
       v.name = "master"
